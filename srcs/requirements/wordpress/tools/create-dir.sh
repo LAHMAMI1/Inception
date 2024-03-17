@@ -6,3 +6,6 @@ if [ ! -d "/home/olahmami/data" ]; then
         mkdir -p /home/olahmami/data/mariadb
         mkdir -p /home/olahmami/data/wordpress
 fi
+
+# Change the DNS server
+sed -i 's|localhost|olahmami.42.fr|g' /etc/hosts

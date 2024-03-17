@@ -14,12 +14,12 @@ RUN sed -i "s|listen = /run/php/php8.2-fpm.sock|listen = 0.0.0.0:9000|" /etc/php
 
 # Download and install wordpress
 WORKDIR /var/www
-RUN wget https://wordpress.org/latest.tar.gz && \
-    tar -xzf latest.tar.gz && \
-    cp -r wordpress/* . && \
-    rm -rf latest.tar.gz wordpress
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar && \
+    mv wp-cli.phar /usr/local/bin/wp
 
 # Copy configuration file
-COPY ./conf/wp-config.php /var/www/
+COPY ./conf/wp-config.sh /var/www
+RUN chmod +x /var/www/wp-config.sh
 
-CMD ["/usr/sbin/php-fpm8.2", "-F"]
+CMD ["sh", "/var/www/wp-config.sh"]

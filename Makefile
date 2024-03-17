@@ -23,7 +23,7 @@ re:
 clean: down
 	@printf "Cleaning configuration ${NAME}...\n"
 	@docker system prune -a
-	@sudo rm -rf ~/home/olahmami/data/
+	@rm -rf /home/olahmami/data/
 
 fclean:
 	@printf "Total clean of all configurations docker\n"
@@ -31,6 +31,6 @@ fclean:
 	@docker system prune --all --force --volumes
 	@docker network prune --force
 	@docker volume prune --force
-	@sudo rm -rf ~/home/olahmami/data/
+	@rm -rf /home/olahmami/data/
 
 .PHONY	: all build down re clean fclean

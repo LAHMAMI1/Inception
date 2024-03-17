@@ -5,8 +5,8 @@ service mariadb start
 
 # Create the database
 mariadb -e "CREATE DATABASE IF NOT EXISTS $MARIADB_NAME;"
-mariadb -e "CREATE USER IF NOT EXISTS '$MARIADB_USER'@'localhost' IDENTIFIED BY '$MARIADB_PASS';"
-mariadb -e "GRANT ALL PRIVILEGES ON $MARIADB_NAME.* TO '$MARIADB_USER'@'localhost';"
+mariadb -e "CREATE USER IF NOT EXISTS '$MARIADB_USER'@ IDENTIFIED BY '$MARIADB_PASS';"
+mariadb -e "GRANT ALL PRIVILEGES ON $MARIADB_NAME.* TO '$MARIADB_USER';"
 mariadb -e "FLUSH PRIVILEGES;";
 
 service mariadb stop

@@ -13,4 +13,4 @@ COPY ./tools/database-init.sh /tmp/
 RUN chmod +x /tmp/database-init.sh
 
 # Start MariaDB service
-CMD ["./tmp/database-init.sh"]
+CMD ["sh", "/tmp/database-init.sh"]

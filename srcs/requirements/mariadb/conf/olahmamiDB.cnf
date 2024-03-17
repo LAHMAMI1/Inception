@@ -1,6 +1,7 @@
 # init config file
-[mariadb]
+[mysqld]
 # Set the port to listen to 3306
-port=3306
+port = 3306
 # Set the bind address to
-bind-address=127.0.0.1
+bind-address = 0.0.0.0
+
